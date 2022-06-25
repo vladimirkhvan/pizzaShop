@@ -3,6 +3,10 @@
 
 @import 'components/all';
 
+*{
+    font-family: Nunito, system-ui, Tahoma, sans-serif;
+}
+
 body {
   background-color: $background;
 }
