@@ -1,13 +1,11 @@
 import React from 'react';
 
-import styles from './InfoBlock.module.scss';
-
 const InfoBlock = ({ title, description, img }) => {
     return (
-        <div className={styles.infoBlock}>
+        <div className="infoBlock">
             <h1>{title}</h1>
             <p>{description}</p>
-            {img && <img src={img} />}
+            {img && <img src={img} alt={title}/>}
         </div>
     );
 };

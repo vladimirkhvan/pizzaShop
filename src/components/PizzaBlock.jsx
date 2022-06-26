@@ -16,6 +16,7 @@ function PizzaBlock({ title, imageUrl, types, price, sizes }) {
                 <ul>
                     {types.map((typeIndex, index) => (
                         <li
+                            key={index}
                             className={activeType === index ? 'active' : ''}
                             onClick={() => setActiveType(index)}>
                             {typeDictionary[typeIndex]}
@@ -25,6 +26,7 @@ function PizzaBlock({ title, imageUrl, types, price, sizes }) {
                 <ul>
                     {sizes.map((size, index) => (
                         <li
+                            key = {index}
                             className={activeSizeIndex === index ? 'active' : ''}
                             onClick={() => setActiveSizeIndex(index)}>
                             {size} см.
