@@ -9,9 +9,9 @@ function Sort() {
 
     const selectors = ['популярности', 'цене', 'алфавиту'];
 
-    function selectOption(option){
+    function selectOption(option) {
         setChosenSelector(option);
-        setIsVisible(prevIsVisible => !prevIsVisible);
+        setIsVisible((prevIsVisible) => !prevIsVisible);
     }
 
     return (
