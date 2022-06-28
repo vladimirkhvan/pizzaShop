@@ -2,10 +2,8 @@ import React from 'react';
 
 export default Categoties;
 
-function Categoties() {
+function Categoties({activeIndex, setActiveIndex}) {
     const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
-
-    const [activeIndex, setActiveIndex] = React.useState(0);
 
     return (
         <div className="categories">

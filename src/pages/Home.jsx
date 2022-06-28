@@ -11,18 +11,34 @@ const Home = () => {
 
     const [isLoading, setIsLoading] = React.useState(true);
 
+    const [chosenCategoryId, setChosenCategoryId] = React.useState(0);
+    const [sortSelector, setSortSelector] = React.useState({
+        title: 'популярности (DESC)',
+        property: 'rating',
+    });
+
     React.useEffect(() => {
-        axios.get('https://62b7554a691dcea2733d6cff.mockapi.io/items').then((res) => {
-            setPizzas(res.data);
-            setIsLoading(false);
-        });
-    }, []);
+        const sortingSelector = sortSelector.property.replace('-', '');
+        const order = sortSelector.property[0] === '-' ? 'asc' : 'desc';
+        const category = chosenCategoryId ? `&category=${chosenCategoryId}` : '';
+
+        setIsLoading(true);
+
+        axios
+            .get(
+                `https://62b7554a691dcea2733d6cff.mockapi.io/items?sortBy=${sortingSelector}&order=${order}${category}`,
+            )
+            .then((res) => {
+                setPizzas(res.data);
+                setIsLoading(false);
+            });
+    }, [chosenCategoryId, sortSelector]);
 
     return (
         <>
             <div className="content__top">
-                <Categories />
-                <Sort />
+                <Categories activeIndex={chosenCategoryId} setActiveIndex={setChosenCategoryId} />
+                <Sort selector={sortSelector} setSelector={setSortSelector} />
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">

@@ -2,15 +2,20 @@ import React from 'react';
 
 export default Sort;
 
-function Sort() {
+function Sort({ selector, setSelector }) {
     const [isVisible, setIsVisible] = React.useState(false);
 
-    const [chosenSelector, setChosenSelector] = React.useState('популярности');
-
-    const selectors = ['популярности', 'цене', 'алфавиту'];
+    const selectorsDictionary = [
+        { title: 'популярности (DESC)', property: 'rating' },
+        { title: 'популярности (ASC)', property: '-rating' },
+        { title: 'цене (DESC)', property: 'price' },
+        { title: 'цене (ASC)', property: '-price' },
+        { title: 'алфавиту (DESC)', property: 'title' },
+        { title: 'алфавиту (ASC)', property: '-title' },
+    ];
 
     function selectOption(option) {
-        setChosenSelector(option);
+        setSelector(option);
         setIsVisible((prevIsVisible) => !prevIsVisible);
     }
 
@@ -31,16 +36,16 @@ function Sort() {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span>{chosenSelector}</span>
+                <span>{selector.title}</span>
             </div>
             <div className={'sort__popup' + (isVisible ? ' sort__visible' : '')}>
                 <ul>
-                    {selectors.map((selector, index) => (
+                    {selectorsDictionary.map((obj, index) => (
                         <li
                             key={index}
-                            className={chosenSelector === selector ? 'active' : ''}
-                            onClick={() => selectOption(selector)}>
-                            {selector}
+                            className={obj.property === selector.property ? 'active' : ''}
+                            onClick={() => selectOption(obj)}>
+                            {obj.title}
                         </li>
                     ))}
                 </ul>
