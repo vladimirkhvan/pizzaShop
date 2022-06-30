@@ -1,9 +1,12 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-export default Sort;
+import { setSortSelector as setSelector } from '../redux/slices/filterSlice';
 
-function Sort({ selector, setSelector }) {
+function Sort() {
     const [isVisible, setIsVisible] = React.useState(false);
+    const selector = useSelector((state) => state.filter.sortSelector);
+    const dispatch = useDispatch();
 
     const selectorsDictionary = [
         { title: 'популярности (DESC)', property: 'rating' },
@@ -15,7 +18,7 @@ function Sort({ selector, setSelector }) {
     ];
 
     function selectOption(option) {
-        setSelector(option);
+        dispatch(setSelector(option));
         setIsVisible((prevIsVisible) => !prevIsVisible);
     }
 
@@ -53,3 +56,5 @@ function Sort({ selector, setSelector }) {
         </div>
     );
 }
+
+export default Sort;

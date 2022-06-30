@@ -22,7 +22,6 @@ const Pagination = ({ numberOfPages, activeIndex, setActiveIndex }) => {
             setActiveIndex((prevActiveIndex) => prevActiveIndex + 1);
         }
     }
-    console.log(activeIndex);
     return (
         <div className='pagination'>
             <ul>
