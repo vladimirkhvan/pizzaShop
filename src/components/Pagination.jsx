@@ -1,35 +1,36 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Pagination = ({ numberOfPages, activeIndex, setActiveIndex }) => {
-    const pageIndex = [];
-    for (let i = 0; i < numberOfPages; i++) {
-        pageIndex.push(
+import {
+    setPageIndex as setActiveIndex,
+    incrementPageIndex as increment,
+    decrementPageIndex as decrement,
+} from '../redux/slices/filterSlice';
+
+const Pagination = ({ numberOfPages }) => {
+    const indexes = [];
+    const activeIndex = useSelector((state) => state.filter.pageIndex);
+    const dispatch = useDispatch();
+
+    for (let i = 1; i < numberOfPages + 1; i++) {
+        indexes.push(
             <li
                 key={i}
-                onClick={() => setActiveIndex(i)}
+                onClick={() => dispatch(setActiveIndex(i))}
                 className={activeIndex === i ? 'active' : ''}>
-                {i + 1}
+                {i}
             </li>,
         );
     }
-    function decrement() {
-        if (activeIndex) {
-            setActiveIndex((prevActiveIndex) => prevActiveIndex - 1);
-        }
-    }
-    function increment() {
-        if (activeIndex + 1 < numberOfPages) {
-            setActiveIndex((prevActiveIndex) => prevActiveIndex + 1);
-        }
-    }
+
     return (
-        <div className='pagination'>
+        <div className="pagination">
             <ul>
-                <li onClick={() => decrement()}>{'<'}</li>
+                <li onClick={() => dispatch(decrement(numberOfPages))}>{'<'}</li>
 
-                {pageIndex}
+                {indexes}
 
-                <li onClick={() => increment()}>{'>'}</li>
+                <li onClick={() => dispatch(increment(numberOfPages))}>{'>'}</li>
             </ul>
         </div>
     );

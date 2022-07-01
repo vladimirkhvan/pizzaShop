@@ -3,19 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { setSortSelector as setSelector } from '../redux/slices/filterSlice';
 
+export const selectorsDictionary = [
+    { title: 'популярности (DESC)', property: 'rating' },
+    { title: 'популярности (ASC)', property: '-rating' },
+    { title: 'цене (DESC)', property: 'price' },
+    { title: 'цене (ASC)', property: '-price' },
+    { title: 'алфавиту (DESC)', property: 'title' },
+    { title: 'алфавиту (ASC)', property: '-title' },
+];
+
 function Sort() {
     const [isVisible, setIsVisible] = React.useState(false);
     const selector = useSelector((state) => state.filter.sortSelector);
     const dispatch = useDispatch();
-
-    const selectorsDictionary = [
-        { title: 'популярности (DESC)', property: 'rating' },
-        { title: 'популярности (ASC)', property: '-rating' },
-        { title: 'цене (DESC)', property: 'price' },
-        { title: 'цене (ASC)', property: '-price' },
-        { title: 'алфавиту (DESC)', property: 'title' },
-        { title: 'алфавиту (ASC)', property: '-title' },
-    ];
 
     function selectOption(option) {
         dispatch(setSelector(option));
