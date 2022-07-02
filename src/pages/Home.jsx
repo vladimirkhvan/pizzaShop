@@ -33,7 +33,6 @@ const Home = () => {
     React.useEffect(() => {
         if (window.location.search) {
             const params = qs.parse(window.location.search.substring(1));
-            console.log(params);
             dispatch(setFilters({ ...params }));
             isSearch.current = true;
         }
@@ -62,13 +61,15 @@ const Home = () => {
     }, [categoryId, sortSelector, searchValue, pageIndex]);
 
     React.useEffect(() => {
-        if(isMounted.current){const queryString = qs.stringify({
-            categoryId,
-            sortProperty: sortSelector.property,
-            pageIndex,
-        });
+        if (isMounted.current) {
+            const queryString = qs.stringify({
+                categoryId,
+                sortProperty: sortSelector.property,
+                pageIndex,
+            });
 
-        navigate(`?${queryString}`);}
+            navigate(`?${queryString}`);
+        }
         isMounted.current = true;
     }, [categoryId, sortSelector, searchValue, pageIndex]);
 

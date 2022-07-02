@@ -1,12 +1,27 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { addItem } from '../redux/slices/cartSlice';
 
 export default PizzaBlock;
 
-function PizzaBlock({ title, imageUrl, types, price, sizes }) {
+function PizzaBlock({ id, title, imageUrl, types, price, sizes }) {
     const typeDictionary = ['тонкое', 'традиционное'];
-    const [activeType, setActiveType] = React.useState(0);
 
+    const [activeType, setActiveType] = React.useState(0);
     const [activeSizeIndex, setActiveSizeIndex] = React.useState(0);
+
+    const items = useSelector(state => state.cart.items);
+
+    let count = 0;
+
+    for(let i = 0; i < items.length; i++){
+        if(items[i].id === id){
+            count += items[i].count;
+        }
+    }
+
+    const dispatch = useDispatch();
 
     return (
         <div className="pizza-block">
@@ -26,7 +41,7 @@ function PizzaBlock({ title, imageUrl, types, price, sizes }) {
                 <ul>
                     {sizes.map((size, index) => (
                         <li
-                            key = {index}
+                            key={index}
                             className={activeSizeIndex === index ? 'active' : ''}
                             onClick={() => setActiveSizeIndex(index)}>
                             {size} см.
@@ -36,7 +51,21 @@ function PizzaBlock({ title, imageUrl, types, price, sizes }) {
             </div>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {price} ₽</div>
-                <div className="button button--outline button--add">
+                <div
+                    className="button button--outline button--add"
+                    onClick={() =>
+                        dispatch(
+                            addItem({
+                                id,
+                                title,
+                                image: imageUrl,
+                                type: typeDictionary[activeType],
+                                size: sizes[activeSizeIndex],
+                                price,
+                                count: 1,
+                            }),
+                        )
+                    }>
                     <svg
                         width="12"
                         height="12"
@@ -49,7 +78,7 @@ function PizzaBlock({ title, imageUrl, types, price, sizes }) {
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>2</i>
+                    { count > 0 && <i>{count}</i>}
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
     border-bottom: 1px solid $gray-line;
     padding: 40px 0;
 
-    @media screen and (max-width: 580px) {
+    @media screen and (max-width: 660px) {
         padding: 40px 0 30px;
     }
 
@@ -13,11 +13,11 @@
         align-items: center;
         justify-content: space-between;
 
-        @media screen and (max-width: 580px) {
+        @media screen and (max-width: 660px) {
             flex-direction: column;
         }
 
-        @media screen and (min-width: 581px) and (max-width: 1000px) {
+        @media screen and (min-width: 661px) and (max-width: 1000px) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
 
@@ -31,12 +31,12 @@
         position: relative;
         max-width: 300px;
 
-        @media screen and (min-width: 581px) and (max-width: 1000px) {
+        @media screen and (min-width: 661px) and (max-width: 1000px) {
             margin: 25px auto 0;
             grid-column: span 3;
         }
 
-        @media screen and (max-width: 580px) {
+        @media screen and (max-width: 660px) {
             margin: 25px 0 15px;
         }
 
@@ -77,9 +77,8 @@
     }
 
     &__cart {
-        max-width: 160px;
 
-        @media screen and (min-width: 581px) and (max-width: 1000px) {
+        @media screen and (min-width: 661px) and (max-width: 1000px) {
             margin: 25px 0 15px;
             grid-row: 1;
             grid-column: 3;

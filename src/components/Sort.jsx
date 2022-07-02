@@ -17,13 +17,29 @@ function Sort() {
     const selector = useSelector((state) => state.filter.sortSelector);
     const dispatch = useDispatch();
 
+    const popupElement = React.useRef();
+
     function selectOption(option) {
         dispatch(setSelector(option));
         setIsVisible((prevIsVisible) => !prevIsVisible);
     }
 
+    React.useEffect(() => {
+        function handleBodyClick(e) {
+            if (!e.path.includes(popupElement.current)) {
+                setIsVisible(false);
+            }
+        }
+
+        document.body.addEventListener('click', handleBodyClick);
+
+        return () => {
+            document.body.removeEventListener('click', handleBodyClick);
+        };
+    }, []);
+
     return (
-        <div className="sort">
+        <div className="sort" ref={popupElement}>
             <div
                 className="sort__label"
                 onClick={() => setIsVisible((prevIsVisible) => !prevIsVisible)}>
