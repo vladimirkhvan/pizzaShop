@@ -9,19 +9,16 @@ import PizzaSkeleton from '../components/PizzaSkeleton';
 import Pagination from '../components/Pagination';
 import InfoBlock from '../components/InfoBlock';
 
-import { SearchContext } from '../context/SearchContext';
-
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setFilters } from '../redux/slices/filterSlice';
 import { fetchPizza } from '../redux/slices/pizzaSlice';
 
+import errorImg from '../assets/img/error.jpg';
+
 const Home = () => {
-
-    const { categoryId, sortSelector, pageIndex } = useSelector((state) => state.filter);
+    const { categoryId, sortSelector, pageIndex, searchValue } = useSelector((state) => state.filter);
     const { items: pizzas, status } = useSelector((state) => state.pizza);
-
-    const { searchValue } = React.useContext(SearchContext);
 
     const isSearch = React.useRef(false);
     const isMounted = React.useRef(false);
@@ -70,16 +67,22 @@ const Home = () => {
                 <Sort />
             </div>
             <h2 className="content__title">Все пиццы</h2>
-            <div className="content__items">
-                {status === 'rejected' ? (
-                    <InfoBlock />
-                ) : status === 'pending' ? (
-                    [...Array(4)].map((item, index) => <PizzaSkeleton key={index} />)
-                ) : (
-                    pizzas.map((pizza) => <PizzaBlock key={pizza.id} {...pizza} />)
-                )}
-            </div>
-            <Pagination numberOfPages={3} />
+            {status === 'rejected' ? (
+                <InfoBlock
+                    title="Что-то пошло не так :<"
+                    description="Попробуйте обновить страницу. Мы скоро все уладим :>"
+                    img={errorImg}
+                />
+            ) : (
+                <>
+                    <div className="content__items">
+                        {status === 'pending'
+                            ? [...Array(4)].map((item, index) => <PizzaSkeleton key={index} />)
+                            : pizzas.map((pizza) => <PizzaBlock key={pizza.id} {...pizza} />)}
+                    </div>
+                    <Pagination numberOfPages={3} />
+                </>
+            )}
         </>
     );
 };

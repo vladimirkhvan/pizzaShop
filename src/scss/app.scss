@@ -82,7 +82,7 @@ body {
     &__top {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        aliFgn-items: center;
     }
 
     .content__items {
@@ -401,7 +401,7 @@ body {
 
     &--empty {
         margin: 0 auto;
-        width: 560px;
+        width: 100%;
         text-align: center;
 
         h2 {
@@ -414,6 +414,14 @@ body {
             line-height: 145.4%;
             letter-spacing: 0.01em;
             color: #777777;
+
+            br{
+                @media screen and (max-width:480px) {
+                display: none;
+                }
+            }
+
+            
         }
 
         icon {
@@ -423,12 +431,14 @@ body {
 
         img {
             display: block;
-            width: 300px;
+            max-width: 300px;
+            width: 100%;
             margin: 45px auto 60px;
         }
 
         .button--black {
             padding: 12px 0 14px;
+
             width: 230px;
             margin: 0 auto;
             font-weight: 600;

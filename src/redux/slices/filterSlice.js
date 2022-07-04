@@ -9,6 +9,7 @@ const initialState = {
         property: 'rating',
     },
     pageIndex: 1,
+    searchValue: '',
 };
 
 const filterSlice = createSlice({
@@ -34,6 +35,9 @@ const filterSlice = createSlice({
                 state.pageIndex--;
             }
         },
+        setSearchValue(state, action){
+            state.searchValue = action.payload;
+        },
         setFilters(state, action) {
             state.categoryId = Number(action.payload.categoryId);
             state.sortSelector = selectorsDictionary.find(
@@ -50,6 +54,7 @@ export const {
     setPageIndex,
     incrementPageIndex,
     decrementPageIndex,
+    setSearchValue,
     setFilters,
 } = filterSlice.actions;
 export default filterSlice.reducer;
