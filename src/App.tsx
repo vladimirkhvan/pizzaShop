@@ -10,7 +10,7 @@ import NotFound from './pages/NotFound';
 import Cart from './pages/Cart';
 import PizzaItem from './components/PizzaItem';
 
-function App() {
+const App:React.FC = () => {
     return (
         <Routes>
             <Route path="/" element={<MainLayout />}>

@@ -2,12 +2,12 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setCategoryId as setActiveIndex } from '../redux/slices/filterSlice';
+import { RootState } from '../redux/store';
 
 export const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
-function Categoties() {
-
-    const activeIndex = useSelector(state => state.filter.categoryId);
+const Categoties: React.FC = () => {
+    const activeIndex = useSelector((state: RootState) => state.filter.categoryId);
     const dispatch = useDispatch();
 
     return (
@@ -24,6 +24,6 @@ function Categoties() {
             </ul>
         </div>
     );
-}
+};
 
 export default Categoties;

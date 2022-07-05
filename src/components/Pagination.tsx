@@ -1,15 +1,21 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { RootState } from '../redux/store';
+
 import {
     setPageIndex as setActiveIndex,
     incrementPageIndex as increment,
     decrementPageIndex as decrement,
 } from '../redux/slices/filterSlice';
 
-const Pagination = ({ numberOfPages }) => {
-    const indexes = [];
-    const activeIndex = useSelector((state) => state.filter.pageIndex);
+interface PaginationProps{
+    numberOfPages: number,
+}
+
+const Pagination:React.FC<PaginationProps> = ({ numberOfPages }) => {
+    const indexes: JSX.Element[] = [];
+    const activeIndex = useSelector((state: RootState) => state.filter.pageIndex);
     const dispatch = useDispatch();
 
     for (let i = 1; i < numberOfPages + 1; i++) {
@@ -26,11 +32,11 @@ const Pagination = ({ numberOfPages }) => {
     return (
         <div className="pagination">
             <ul>
-                <li onClick={() => dispatch(decrement(numberOfPages))}>{'<'}</li>
+                <li onClick={() => dispatch(decrement())}>{'<'}</li>
 
                 {indexes}
 
-                <li onClick={() => dispatch(increment(numberOfPages))}>{'>'}</li>
+                <li onClick={() => dispatch(increment())}>{'>'}</li>
             </ul>
         </div>
     );

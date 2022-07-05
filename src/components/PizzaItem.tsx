@@ -9,24 +9,25 @@ import { categories as categoryDictionary } from './Categories';
 import { typeDictionary } from './PizzaBlock';
 
 import { addItem } from '../redux/slices/cartSlice';
+import { RootState } from '../redux/store';
+import { TPizza } from '../redux/slices/pizzaSlice';
 
-const PizzaItem = () => {
+const PizzaItem:React.FC = () => {
     const { id } = useParams();
 
-    const [pizza, setPizza] = React.useState({});
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [pizza, setPizza] = React.useState<TPizza>();
 
-    const [activeType, setActiveType] = React.useState(0);
-    const [activeSizeIndex, setActiveSizeIndex] = React.useState(0);
-    
-    const items = useSelector(state => state.cart.items);
+    const [activeType, setActiveType] = React.useState<number>(0);
+    const [activeSizeIndex, setActiveSizeIndex] = React.useState<number>(0);
+
+    const items = useSelector((state: RootState) => state.cart.items);
 
     const dispatch = useDispatch();
 
-    let count = 0;
+    let count: number = 0;
 
-    for(let i = 0; i < items.length; i++){
-        if(items[i].id === id){
+    for (let i = 0; i < items.length; i++) {
+        if (items[i].id === id) {
             count += items[i].count;
         }
     }
@@ -34,23 +35,15 @@ const PizzaItem = () => {
     React.useEffect(() => {
         axios.get(`https://62b7554a691dcea2733d6cff.mockapi.io/items/${id}`).then((res) => {
             setPizza(res.data);
-            setIsLoading(false);
         });
     }, []);
 
-    if (isLoading) {
-        return (
-            <InfoBlock title="Загрузка..." description="Электронная пицца еще не допеклась :>" />
-        );
-    }
-
-    return (
+    return !pizza ? (
+        <InfoBlock title="Загрузка..." description="Электронная пицца еще не допеклась :>" />
+    ) : (
         <div className="pizza-item">
             <div className="pizza-item__left-side">
-                <img
-                    src={pizza.imageUrl}
-                    alt="pizza"
-                />
+                <img src={pizza.imageUrl} alt="pizza" />
             </div>
             <div className="pizza-item__right-side">
                 <h1>{pizza.title}</h1>
@@ -94,17 +87,23 @@ const PizzaItem = () => {
                     <Link to="/">
                         <button className="pizza-item__button">Назад</button>
                     </Link>
-                    <button className="pizza-item__button" onClick={()=>dispatch(
-                            addItem({
-                                id,
-                                title: pizza.title,
-                                image: pizza.imageUrl,
-                                type: typeDictionary[activeType],
-                                size: pizza.sizes[activeSizeIndex],
-                                price: pizza.price,
-                                count: 1,
-                            }),
-                        )}>Добавить</button>
+                    <button
+                        className="pizza-item__button"
+                        onClick={() =>
+                            dispatch(
+                                addItem({
+                                    id,
+                                    title: pizza.title,
+                                    image: pizza.imageUrl,
+                                    type: typeDictionary[activeType],
+                                    size: pizza.sizes[activeSizeIndex],
+                                    price: pizza.price,
+                                    count: 1,
+                                }),
+                            )
+                        }>
+                        Добавить
+                    </button>
                 </div>
             </div>
         </div>

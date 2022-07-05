@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setSortSelector as setSelector } from '../redux/slices/filterSlice';
+import { RootState } from '../redux/store';
 
 export const selectorsDictionary = [
     { title: 'популярности (DESC)', property: 'rating' },
@@ -12,12 +13,12 @@ export const selectorsDictionary = [
     { title: 'алфавиту (ASC)', property: '-title' },
 ];
 
-function Sort() {
+const Sort: React.FC = () => {
     const [isVisible, setIsVisible] = React.useState(false);
-    const selector = useSelector((state) => state.filter.sortSelector);
+    const selector = useSelector((state: RootState) => state.filter.sortSelector);
     const dispatch = useDispatch();
 
-    const popupElement = React.useRef();
+    const popupElement = React.useRef<HTMLDivElement>();
 
     function selectOption(option) {
         dispatch(setSelector(option));
@@ -71,6 +72,6 @@ function Sort() {
             </div>
         </div>
     );
-}
+};
 
 export default Sort;

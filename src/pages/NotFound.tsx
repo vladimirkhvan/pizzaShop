@@ -4,7 +4,7 @@ import InfoBlock from '../components/InfoBlock';
 
 import notFoundImg from '../assets/img/notFound.jpg'
 
-const NotFound = () => {
+const NotFound:React.FC = () => {
     return (
         <>
             <InfoBlock

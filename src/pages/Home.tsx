@@ -9,28 +9,36 @@ import PizzaSkeleton from '../components/PizzaSkeleton';
 import Pagination from '../components/Pagination';
 import InfoBlock from '../components/InfoBlock';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 
 import { setFilters } from '../redux/slices/filterSlice';
 import { fetchPizza } from '../redux/slices/pizzaSlice';
+import { RootState, useAppDispatch } from '../redux/store';
 
 import errorImg from '../assets/img/error.jpg';
 
-const Home = () => {
-    const { categoryId, sortSelector, pageIndex, searchValue } = useSelector((state) => state.filter);
-    const { items: pizzas, status } = useSelector((state) => state.pizza);
+const Home:React.FC = () => {
+    const { categoryId, sortSelector, pageIndex, searchValue } = useSelector(
+        (state: RootState) => state.filter,
+    );
+    const { items: pizzas, status } = useSelector((state: RootState) => state.pizza);
 
-    const isSearch = React.useRef(false);
-    const isMounted = React.useRef(false);
+    const isSearch = React.useRef<boolean>(false);
+    const isMounted = React.useRef<boolean>(false);
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     React.useEffect(() => {
         if (window.location.search) {
             const params = qs.parse(window.location.search.substring(1));
-            dispatch(setFilters({ ...params }));
-            isSearch.current = true;
+            dispatch(
+                setFilters({
+                    categoryId: Number(params.categoryId),
+                    sortProperty: String(params.sortProperty),
+                    pageIndex: Number(params.pageIndex),
+                }),
+            );
         }
     }, []);
 

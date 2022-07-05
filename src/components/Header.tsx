@@ -8,14 +8,18 @@ import { setFilters } from '../redux/slices/filterSlice';
 import logo from '../assets/img/pizza-logo.svg';
 
 import Search from './Search';
+import { RootState } from '../redux/store';
 
-function Header() {
+
+const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const {totalPrice, items} = useSelector(state => state.cart);
+    const { totalPrice, items } = useSelector((state: RootState) => state.cart);
 
-    const count = items.reduce((sum, current) => sum+current.count, 0);
+    const count = items.reduce(
+        (sum: number, current) => sum + current.count, 0
+        );
 
     const onClickLogo = async () => {
         await dispatch(

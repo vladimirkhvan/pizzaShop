@@ -1,8 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { selectorsDictionary } from '../../components/Sort';
 
-const initialState = {
+type TSortSelector = {
+    title: string;
+    property: string;
+};
+
+type FilterSetProps = {
+    categoryId: number;
+    sortProperty: string;
+    pageIndex: number;
+};
+
+interface FilterSliceState {
+    categoryId: number;
+    sortSelector: TSortSelector;
+    pageIndex: number;
+    searchValue: string;
+}
+
+const initialState: FilterSliceState = {
     categoryId: 0,
     sortSelector: {
         title: 'популярности (DESC)',
@@ -16,16 +34,16 @@ const filterSlice = createSlice({
     name: 'filter',
     initialState,
     reducers: {
-        setCategoryId(state, action) {
+        setCategoryId(state, action: PayloadAction<number>) {
             state.categoryId = action.payload;
         },
-        setSortSelector(state, action) {
+        setSortSelector(state, action: PayloadAction<TSortSelector>) {
             state.sortSelector = action.payload;
         },
-        setPageIndex(state, action) {
+        setPageIndex(state, action: PayloadAction<number>) {
             state.pageIndex = action.payload;
         },
-        incrementPageIndex(state, action) {
+        incrementPageIndex(state, action: PayloadAction<number>) {
             if (state.pageIndex < action.payload) {
                 state.pageIndex++;
             }
@@ -35,10 +53,10 @@ const filterSlice = createSlice({
                 state.pageIndex--;
             }
         },
-        setSearchValue(state, action){
+        setSearchValue(state, action: PayloadAction<string>) {
             state.searchValue = action.payload;
         },
-        setFilters(state, action) {
+        setFilters(state, action: PayloadAction<FilterSetProps>) {
             state.categoryId = Number(action.payload.categoryId);
             state.sortSelector = selectorsDictionary.find(
                 (item) => item.property === action.payload.sortProperty,

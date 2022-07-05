@@ -1,16 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// {
-//      id,
-//     title,
-//     image,
-//     type,
-//     size,
-//     price,
-//      count
-// }
+export type TCartItem = {
+    id: string;
+    title: string;
+    image: string;
+    type: string;
+    size: number;
+    price: number;
+    count: number;
+};
 
-const initialState = {
+interface CartSliceState {
+    totalPrice: number;
+    items: TCartItem[];
+}
+
+const initialState: CartSliceState = {
     totalPrice: 0,
     items: [],
 };
@@ -19,7 +24,7 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addItem(state, action) {
+        addItem(state, action: PayloadAction<TCartItem>) {
             const obj = state.items.find(
                 (item) =>
                     item.id === action.payload.id &&
@@ -38,20 +43,22 @@ export const cartSlice = createSlice({
                 0,
             );
         },
-        removeOneItem(state, action) {
+        removeOneItem(state, action: PayloadAction<TCartItem>) {
             const obj = state.items.find(
                 (item) =>
                     item.id === action.payload.id &&
                     item.type === action.payload.type &&
                     item.size === action.payload.size,
             );
-            obj.count--;
-            state.totalPrice = state.items.reduce(
-                (sum, current) => sum + current.price * current.count,
-                0,
-            );
+            if (obj.count > 1) {
+                obj.count--;
+                state.totalPrice = state.items.reduce(
+                    (sum, current) => sum + current.price * current.count,
+                    0,
+                );
+            }
         },
-        removeItem(state, action) {
+        removeItem(state, action: PayloadAction<TCartItem>) {
             state.items = state.items.filter(
                 (item) =>
                     item.id !== action.payload.id ||
