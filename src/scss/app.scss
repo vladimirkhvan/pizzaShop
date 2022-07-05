@@ -82,7 +82,7 @@ body {
     &__top {
         display: flex;
         justify-content: space-between;
-        aliFgn-items: center;
+        alifgn-items: center;
     }
 
     .content__items {
@@ -232,6 +232,25 @@ body {
                         display: none;
                     }
                 }
+
+                &:disabled {
+                    cursor: auto;
+                    border-color: #777777;
+
+                    &:hover{
+                        background-color: white;
+                    }
+
+                    &:active{
+                        transform: translateY(0)
+                    }
+
+                    svg {
+                        path{
+                            fill: #777777;
+                        }
+                    }
+                }
             }
 
             b {
@@ -314,20 +333,20 @@ body {
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 15px;
-                    
-                    span{
+
+                    span {
                         flex-shrink: 0;
                     }
 
-                    b{
+                    b {
                         flex-shrink: 0;
                     }
 
-                    .filler{
+                    .filler {
                         width: 100%;
                         border-bottom: 1px dashed darken($color: $gray-line, $amount: 20%);
                         flex-shrink: 1;
-                        transform:translateY(-19px);
+                        transform: translateY(-19px);
                         margin: 0 5px;
                     }
                 }
@@ -393,7 +412,7 @@ body {
                 padding: 16px;
 
                 @media screen and (max-width: 580px) {
-                    margin:0 auto;
+                    margin: 0 auto;
                 }
             }
         }
@@ -415,13 +434,11 @@ body {
             letter-spacing: 0.01em;
             color: #777777;
 
-            br{
-                @media screen and (max-width:480px) {
-                display: none;
+            br {
+                @media screen and (max-width: 480px) {
+                    display: none;
                 }
             }
-
-            
         }
 
         icon {
