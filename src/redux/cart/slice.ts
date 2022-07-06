@@ -9,7 +9,7 @@ const {totalPrice, items} = getCartFromLS();
 
 const initialState: CartSliceState = {
     totalPrice,
-    items,
+    items: items !== null ? items : [],
 };
 
 export const cartSlice = createSlice({

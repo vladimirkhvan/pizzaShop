@@ -1,12 +1,16 @@
-import { TCartItem } from "../redux/cart/types";
-import { getTotalPrice } from "./getTotalPrice";
+import { TCartItem } from '../redux/cart/types';
+import { getTotalPrice } from './getTotalPrice';
 
 export const getCartFromLS = () => {
     const cart = localStorage.getItem('cart') as string;
 
-    const items = JSON.parse(cart) as TCartItem[];
+    let items = JSON.parse(cart) as TCartItem[];
+
+    if (items === null) {
+        items = [];
+    }
 
     const totalPrice = getTotalPrice(items);
 
-    return {items, totalPrice}
-}
+    return { items, totalPrice };
+};

@@ -29,11 +29,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
     const [activeType, setActiveType] = React.useState<number>(0);
     const [activeSizeIndex, setActiveSizeIndex] = React.useState<number>(0);
 
-    let items = useSelector((state: RootState) => state.cart.items);
-
-    if (items === null) {
-        items = [];
-    }
+    const items = useSelector((state: RootState) => state.cart.items);
 
     let count: number = 0;
 
