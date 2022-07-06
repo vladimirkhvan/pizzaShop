@@ -7,10 +7,10 @@ import { setFilters } from '../redux/filter/slice';
 
 import logo from '../assets/img/pizza-logo.svg';
 
-import Search from './Search';
+import {Search} from './';
 import { RootState } from '../redux/store';
 
-const Header = () => {
+export const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -88,5 +88,3 @@ const Header = () => {
         </div>
     );
 };
-
-export default Header;

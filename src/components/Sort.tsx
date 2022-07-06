@@ -13,7 +13,7 @@ export const selectorsDictionary = [
     { title: 'алфавиту (ASC)', property: '-title' },
 ];
 
-const Sort: React.FC = () => {
+export const Sort: React.FC = () => {
     const [isVisible, setIsVisible] = React.useState(false);
     const selector = useSelector((state: RootState) => state.filter.sortSelector);
     const dispatch = useDispatch();
@@ -73,5 +73,3 @@ const Sort: React.FC = () => {
         </div>
     );
 };
-
-export default Sort;

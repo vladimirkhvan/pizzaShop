@@ -2,14 +2,9 @@ import React from 'react';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 
-import Categories from '../components/Categories';
-import Sort from '../components/Sort';
-import PizzaBlock from '../components/PizzaBlock';
-import PizzaSkeleton from '../components/PizzaSkeleton';
-import Pagination from '../components/Pagination';
-import InfoBlock from '../components/InfoBlock';
+import { Categories, Sort, PizzaBlock, PizzaSkeleton, Pagination, InfoBlock } from '../components';
 
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { setFilters } from '../redux/filter/slice';
 import { fetchPizza } from '../redux/pizza/asyncActions';
@@ -17,7 +12,7 @@ import { RootState, useAppDispatch } from '../redux/store';
 
 import errorImg from '../assets/img/error.jpg';
 
-const Home:React.FC = () => {
+const Home: React.FC = () => {
     const { categoryId, sortSelector, pageIndex, searchValue } = useSelector(
         (state: RootState) => state.filter,
     );

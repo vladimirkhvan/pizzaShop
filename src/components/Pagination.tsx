@@ -13,7 +13,7 @@ interface PaginationProps{
     numberOfPages: number,
 }
 
-const Pagination:React.FC<PaginationProps> = ({ numberOfPages }) => {
+export const Pagination:React.FC<PaginationProps> = ({ numberOfPages }) => {
     const indexes: JSX.Element[] = [];
     const activeIndex = useSelector((state: RootState) => state.filter.pageIndex);
     const dispatch = useDispatch();
@@ -41,5 +41,3 @@ const Pagination:React.FC<PaginationProps> = ({ numberOfPages }) => {
         </div>
     );
 };
-
-export default Pagination;

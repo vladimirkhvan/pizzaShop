@@ -6,7 +6,7 @@ interface InfoBlockProps {
     img?: string;
 }
 
-const InfoBlock: React.FC<InfoBlockProps> = ({ title, description, img } ) => {
+export const InfoBlock: React.FC<InfoBlockProps> = ({ title, description, img } ) => {
     return (
         <div className="infoBlock">
             {img && <img src={img} alt={title} />}
@@ -15,5 +15,3 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ title, description, img } ) => {
         </div>
     );
 };
-
-export default InfoBlock;

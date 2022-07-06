@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InfoBlock from '../components/InfoBlock';
+import {InfoBlock} from '../components';
 
 import notFoundImg from '../assets/img/notFound.jpg'
 

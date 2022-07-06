@@ -18,7 +18,7 @@ interface PizzaBlockProps {
     sizes: number[];
 }
 
-const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, imageUrl, types, price, sizes }) => {
+export const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, imageUrl, types, price, sizes }) => {
     const [activeType, setActiveType] = React.useState<number>(0);
     const [activeSizeIndex, setActiveSizeIndex] = React.useState<number>(0);
 
@@ -97,5 +97,3 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, imageUrl, types, pri
         </div>
     );
 };
-
-export default PizzaBlock;

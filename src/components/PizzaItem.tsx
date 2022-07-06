@@ -3,16 +3,16 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import InfoBlock from './InfoBlock';
+import {InfoBlock} from './InfoBlock';
 
-import { categories as categoryDictionary } from './Categories';
+import { categoriesDictionary } from './Categories';
 import { typeDictionary } from './PizzaBlock';
 
 import { addItem } from '../redux/cart/slice';
 import { RootState } from '../redux/store';
 import { TPizza } from '../redux/pizza/types';
 
-const PizzaItem:React.FC = () => {
+export const PizzaItem:React.FC = () => {
     const { id } = useParams();
 
     const [pizza, setPizza] = React.useState<TPizza>();
@@ -47,7 +47,7 @@ const PizzaItem:React.FC = () => {
             </div>
             <div className="pizza-item__right-side">
                 <h1>{pizza.title}</h1>
-                <p className="pizza-item__subtitle">Тип: {categoryDictionary[pizza.category]}</p>
+                <p className="pizza-item__subtitle">Тип: {categoriesDictionary[pizza.category]}</p>
                 <div className="pizza-item__selector">
                     <ul>
                         {pizza.types.map((typeIndex, index) => (
@@ -109,5 +109,3 @@ const PizzaItem:React.FC = () => {
         </div>
     );
 };
-
-export default PizzaItem;
