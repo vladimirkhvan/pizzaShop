@@ -18,13 +18,24 @@ interface PizzaBlockProps {
     sizes: number[];
 }
 
-export const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, imageUrl, types, price, sizes }) => {
+export const PizzaBlock: React.FC<PizzaBlockProps> = ({
+    id,
+    title,
+    imageUrl,
+    types,
+    price,
+    sizes,
+}) => {
     const [activeType, setActiveType] = React.useState<number>(0);
     const [activeSizeIndex, setActiveSizeIndex] = React.useState<number>(0);
 
-    const items = useSelector((state: RootState) => state.cart.items);
+    let items = useSelector((state: RootState) => state.cart.items);
 
-    let count:number = 0;
+    if (items === null) {
+        items = [];
+    }
+
+    let count: number = 0;
 
     for (let i = 0; i < items.length; i++) {
         if (items[i].id === id) {
