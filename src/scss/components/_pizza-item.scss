@@ -50,6 +50,11 @@
         flex-direction: column;
         h1 {
             letter-spacing: 0.05px;
+            font-size: 45px;
+
+            @media screen and (max-width: 420px) {
+                font-size: 36px;
+            }
         }
     }
 
@@ -130,6 +135,10 @@
         border-radius: 25px;
 
         cursor: pointer;
+
+        &:first-of-type{
+            margin-right: 5px;
+        }
 
         &:hover {
             background-color: $orange;
