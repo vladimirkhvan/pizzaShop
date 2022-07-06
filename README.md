@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+### <a href="https://pizza-shop-wheat.vercel.app/">Check deployed project</a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Pizza
+The pizza shop with several features such as <br/>
+1. Search the pizza by name
+2. Filter all pizzas by category and sorting filter
+3. Ability to order the particular pizza and add it to the cart
+4. Observe particular pizza
+5. Pagination
 
-## Available Scripts
+## Tech details.<br/>
+<ul>
+  <li>BEM is used as frontend development methodology</li>
+  <li>Website is fully responsiver</li>
+  <li>All content is rendered dynamically.</li>
+  <li>Backend was imitated using mockAPI.io.</li>
+  <li>Filtering parameters are saved into url</li>
+  <li>All orders in cart are saved in local storage</li>
+  <li>Routing is implemented without refreshing the page</li>
+  <li>Lazy loading implemented</li>
+</ul>
 
-In the project directory, you can run:
+### Tech used. 
 
-### `npm start`
+<ul>
+  <li>Typescript</li>
+  <li>Redux Toolkit</li>
+  <li>ReactJS 18</li>
+  <li>React Router v6</li>
+  <li>React skeleton</li>
+  <li>React hooks</li>
+  <li>React pagination</li>
+  <li>Sass</li>
+  <li>axios</li>
+  <li>Lodash debounce</li>
+  <li>Mock API</li>
+  <li>Figma</li>
+</ul>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to run the project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Pull this repository to your device <br/>
+<code>git clone https://github.com/vladimirkhvan/pizzaShop.git</code>
+2. Change directory to project directory <br/>
+<code>cd {project folder path}</code>
+4. Run project using npm <br/>
+<code>npm start</code>
+5. Wait until new tab with address <code>localhost:3000</code> will be opened <br/>
+6. Enjoy!<br/>
+  
 
-### `npm test`
+## Links
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Figma design: <a href="https://www.figma.com/file/mHu7QeXG6WNGOpj5QCepaz/React-Pizza-(Copy)">Show Figma design</a><br/>
+Deployed project: <a href="https://pizza-shop-wheat.vercel.app/">Show Website</a>
