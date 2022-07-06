@@ -15,7 +15,7 @@ const Cart = React.lazy(() => import('./pages/Cart'));
 const App: React.FC = () => {
     return (
         <Routes>
-            <Route path="/" element={<MainLayout />}>
+            <Route path="" element={<MainLayout />}>
                 <Route path="" element={<Home />} />
                 <Route
                     path="cart"

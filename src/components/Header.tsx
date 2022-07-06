@@ -16,7 +16,7 @@ export const Header = () => {
 
     const { totalPrice, items } = useSelector((state: RootState) => state.cart);
 
-    const count = items.reduce((sum: number, current) => sum + current.count, 0);
+    const count = items === null ? 0 : items.reduce((sum: number, current) => sum + current.count, 0);
 
     const onClickLogo = async () => {
         await dispatch(
