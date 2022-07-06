@@ -1,7 +1,9 @@
 ### <a href="https://pizza-shop-wheat.vercel.app/">Check deployed project</a>
 
 # React Pizza
+
 The pizza shop with several features such as <br/>
+
 1. Search the pizza by name
 2. Filter all pizzas by category and sorting filter
 3. Ability to order the particular pizza and add it to the cart
@@ -9,6 +11,7 @@ The pizza shop with several features such as <br/>
 5. Pagination
 
 ## Tech details.<br/>
+
 <ul>
   <li>BEM is used as frontend development methodology</li>
   <li>Website is fully responsiver</li>
@@ -20,7 +23,7 @@ The pizza shop with several features such as <br/>
   <li>Lazy loading implemented</li>
 </ul>
 
-### Tech used. 
+### Tech used.
 
 <ul>
   <li>Typescript</li>
@@ -40,14 +43,13 @@ The pizza shop with several features such as <br/>
 ## How to run the project
 
 1. Pull this repository to your device <br/>
-<code>git clone https://github.com/vladimirkhvan/pizzaShop.git</code>
+   <code>git clone https://github.com/vladimirkhvan/pizzaShop.git</code>
 2. Change directory to project directory <br/>
-<code>cd {project folder path}</code>
-4. Run project using npm <br/>
-<code>npm start</code>
-5. Wait until new tab with address <code>localhost:3000</code> will be opened <br/>
-6. Enjoy!<br/>
-  
+   <code>cd {project folder path}</code>
+3. Run project using npm <br/>
+   <code>npm start</code>
+4. Wait until new tab with address <code>localhost:3000</code> will be opened <br/>
+5. Enjoy!<br/>
 
 ## Links
 
