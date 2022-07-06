@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addItem } from '../redux/slices/cartSlice';
+import { addItem } from '../redux/cart/slice';
 import { RootState } from '../redux/store';
 
 type TType = 'тонкое' | 'традиционное';

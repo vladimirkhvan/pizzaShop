@@ -1,24 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 import { selectorsDictionary } from '../../components/Sort';
 
-type TSortSelector = {
-    title: string;
-    property: string;
-};
-
-type FilterSetProps = {
-    categoryId: number;
-    sortProperty: string;
-    pageIndex: number;
-};
-
-interface FilterSliceState {
-    categoryId: number;
-    sortSelector: TSortSelector;
-    pageIndex: number;
-    searchValue: string;
-}
+import { FilterSetProps, FilterSliceState, TSortSelector } from "./types";
 
 const initialState: FilterSliceState = {
     categoryId: 0,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setCategoryId as setActiveIndex } from '../redux/slices/filterSlice';
+import { setCategoryId as setActiveIndex } from '../redux/filter/slice';
 import { RootState } from '../redux/store';
 
 export const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];

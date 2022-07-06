@@ -1,4 +1,4 @@
-import { TCartItem } from "../redux/slices/cartSlice";
+import { TCartItem } from "../redux/cart/types";
 
 export const getTotalPrice = (items: TCartItem[])=>{
     return items.reduce(

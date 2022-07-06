@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { setFilters } from '../redux/slices/filterSlice';
+import { setFilters } from '../redux/filter/slice';
 
 import logo from '../assets/img/pizza-logo.svg';
 

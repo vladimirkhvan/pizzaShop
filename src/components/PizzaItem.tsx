@@ -8,9 +8,9 @@ import InfoBlock from './InfoBlock';
 import { categories as categoryDictionary } from './Categories';
 import { typeDictionary } from './PizzaBlock';
 
-import { addItem } from '../redux/slices/cartSlice';
+import { addItem } from '../redux/cart/slice';
 import { RootState } from '../redux/store';
-import { TPizza } from '../redux/slices/pizzaSlice';
+import { TPizza } from '../redux/pizza/types';
 
 const PizzaItem:React.FC = () => {
     const { id } = useParams();

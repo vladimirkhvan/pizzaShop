@@ -7,7 +7,7 @@ import {
     setPageIndex as setActiveIndex,
     incrementPageIndex as increment,
     decrementPageIndex as decrement,
-} from '../redux/slices/filterSlice';
+} from '../redux/filter/slice';
 
 interface PaginationProps{
     numberOfPages: number,

@@ -11,8 +11,8 @@ import InfoBlock from '../components/InfoBlock';
 
 import { useSelector} from 'react-redux';
 
-import { setFilters } from '../redux/slices/filterSlice';
-import { fetchPizza } from '../redux/slices/pizzaSlice';
+import { setFilters } from '../redux/filter/slice';
+import { fetchPizza } from '../redux/pizza/asyncActions';
 import { RootState, useAppDispatch } from '../redux/store';
 
 import errorImg from '../assets/img/error.jpg';

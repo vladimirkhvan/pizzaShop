@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setSortSelector as setSelector } from '../redux/slices/filterSlice';
+import { setSortSelector as setSelector } from '../redux/filter/slice';
 import { RootState } from '../redux/store';
 
 export const selectorsDictionary = [
