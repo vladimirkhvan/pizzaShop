@@ -10,16 +10,13 @@ import logo from '../assets/img/pizza-logo.svg';
 import Search from './Search';
 import { RootState } from '../redux/store';
 
-
 const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const { totalPrice, items } = useSelector((state: RootState) => state.cart);
 
-    const count = items.reduce(
-        (sum: number, current) => sum + current.count, 0
-        );
+    const count = items.reduce((sum: number, current) => sum + current.count, 0);
 
     const onClickLogo = async () => {
         await dispatch(
@@ -31,6 +28,11 @@ const Header = () => {
         );
         navigate(``);
     };
+
+    React.useEffect(() => {
+        const json:string = JSON.stringify(items);
+        localStorage.setItem('cart', json);
+    }, [items]);
 
     return (
         <div className="header">
@@ -85,6 +87,6 @@ const Header = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Header;
