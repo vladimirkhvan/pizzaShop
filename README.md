@@ -6,7 +6,7 @@ The pizza shop with several features such as <br/>
 
 1. Search the pizza by name
 2. Filter all pizzas by category and sorting filter
-3. Ability to order the particular pizza and add it to the cart
+3. Ability to order a particular pizza and add it to the cart
 4. Observe particular pizza
 5. Pagination
 
