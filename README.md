@@ -14,7 +14,7 @@ The pizza shop with several features such as <br/>
 
 <ul>
   <li>BEM is used as frontend development methodology</li>
-  <li>Website is fully responsiver</li>
+  <li>Website is fully responsive</li>
   <li>All content is rendered dynamically.</li>
   <li>Backend was imitated using mockAPI.io.</li>
   <li>Filtering parameters are saved into url</li>
